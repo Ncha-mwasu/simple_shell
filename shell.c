@@ -14,23 +14,26 @@ int main (int argc __atribute__((unused)), char **argv)
 {
 	char *line;
 	char **args;
+	int cmd_type;
 
 	(void) argv;
 
+	/* dealing with ctrl c */
 	signal(SIGINT, ctrl_C);
 
 	while (1)
 	{
 		_print(" ($) ", STDOUT_FILENO);
-		line = _getline();
+		line = get_line();
 
 		if (line == NULL)
 		{
 			if (isatty(STDIN_FILENO))
 				break;
 		}
-
+		/* argument initialization */
 		args = token(line, DELIMETER);
+		cmd_type = check_command(args[0]);
 		execute_shell(args);
 	}
 	return (1);
