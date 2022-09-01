@@ -12,16 +12,6 @@ int print(char *, int) /* user-defined printf using the write func*/
 	return(write(fd, var, _strlen(var)));
 }
 
-int _strlen(char *str) /* str func- gives the length of string */
-{
-	int i = 0;
-
-	while (str[i])
-	{
-		i++;
-	}
-	return (i);
-}
 
 char *get_line(void) /* takes input from the terminal */
 {

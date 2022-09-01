@@ -1,6 +1,13 @@
 #include "shell.h"
 
-/* realloc user defined */
+/**
+ * realloc - reallocation of memory if the size is exceeded
+ * @ptr: pointer to the previous size.
+ * @oldsize: previously allocated size.
+ * @newsize: newsize to allocate;
+ *
+ * Return; the newly allocated size
+ */
 
 void *_realloc(void *ptr, int oldsize, int newsize)
 {
@@ -24,7 +31,7 @@ void *_realloc(void *ptr, int oldsize, int newsize)
 
 	else
 	{
-		min = (new < old) ? newsize : oldsize;
+		min = (new < old) ? newsize : oldsize; /* tenary operator replacing if */
 		tmp = malloc(newsize);
 		if (tmp)
 		{
