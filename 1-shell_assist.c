@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * ctrl_c - handles the ctrl c input.
+ * ctrl_C - handles the ctrl c input.
  * @signum: sets the function to signum.
  *
  * Return: no return.
@@ -21,9 +21,10 @@ void ctrl_C(int signum) /* handles the ctrl + C function */
  */
 char *get_line(void) /* takes input from the terminal */
 {
-	int bufsize = READ_BUF /*declaring a buffer and giving it a defned value */, no_read /* count of chars read */, position = 0;
+	int bufsize = READ_BUF, no_read /* count of chars read */, position = 0;
 
-	char *buffer = malloc(sizeof(char) * bufsize); /*buffer sizing and pointer declaration */
+	char *buffer = malloc(sizeof(char) * bufsize);
+	/*buffer sizing and pointer declaration */
 	char c;
 
 	if (buffer == NULL)
@@ -34,7 +35,8 @@ char *get_line(void) /* takes input from the terminal */
 
 	while (1) /* receives input continously */
 	{
-		no_read = read(STDIN_FILENO, &c, 1); /* reads string by char checking if tis and EOF and stores em in buffer */
+		no_read = read(STDIN_FILENO, &c, 1);
+		/* reads string by char checking if tis and EOF and stores em in buffer */
 
 		if (c == EOF || !no_read) /* no_read number of char read */
 		{
@@ -45,22 +47,26 @@ char *get_line(void) /* takes input from the terminal */
 				return (NULL);
 			}
 
-			else if (c == "\n" || !no_read) /* if a new line is entered stop reading and give a new line */
+			else if (c == "\n" || !no_read)
+				/* if a new line is entered stop reading and give a new line */
 			{
 				buffer[position] = '\0';
 				return (buffer);
 			}
 
-			else 
+			else
 			{
-				buffer[position] = c; /*reading inputs and giving em memory spaces */
+				buffer[position] = c;
+				/*reading inputs and giving em memory spaces */
 			}
 			position++;
 
-			if (position >= bufsize) /* reallocation of storage space for input */
+			if (position >= bufsize)
+				/* reallocation of storage space for input */
 			{
 				bufsize += READ_BUF;
-				buffer = _realloc(buffer, READ_BUF, bufsize); /* calling a user defined realloc func */
+				buffer = _realloc(buffer, READ_BUF, bufsize);
+				/* calling a user defined realloc func */
 
 				if (!buffer)
 				{

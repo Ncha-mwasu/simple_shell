@@ -1,12 +1,12 @@
 #include "shell.h"
 
 /**
- * realloc - reallocation of memory if the size is exceeded
+ * _realloc - reallocation of memory if the size is exceeded
  * @ptr: pointer to the previous size.
  * @oldsize: previously allocated size.
- * @newsize: newsize to allocate;
+ * @newsize: newsize to allocate.
  *
- * Return; the newly allocated size
+ * Return: returns the newly allocated size
  */
 
 void *_realloc(void *ptr, int oldsize, int newsize)
@@ -14,7 +14,7 @@ void *_realloc(void *ptr, int oldsize, int newsize)
 	void *tmp; /* declaring a temporary memory space */
 	int i, min;
 
-	if(ptr == NULL) /* declaring a new space if pointer is empty */
+	if (ptr == NULL) /* declaring a new space if pointer is empty */
 	{
 		tmp = malloc(newsize);
 		return (tmp);
@@ -26,8 +26,8 @@ void *_realloc(void *ptr, int oldsize, int newsize)
 		return (NULL);
 	}
 
-	 else if (newsize == oldsize)
-                return (ptr);
+	else if (newsize == oldsize)
+		return (ptr);
 
 	else
 	{
@@ -38,7 +38,7 @@ void *_realloc(void *ptr, int oldsize, int newsize)
 			for (i = 0; i < min; i++)
 				*((char *)tmp + 1) = *((char *)ptr + 1)
 			free(ptr);
-			return(tmp);
+			return (tmp);
 		}
 
 		else

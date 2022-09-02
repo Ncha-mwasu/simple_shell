@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
- * strlen - function to calculate the length of a string.
- *@str: pointer to a string.
+ * _strlen - function to calculate the length of a string.
+ * @str: pointer to a string.
  *
  * Return: returns the length of a string.
  */
@@ -16,12 +16,13 @@ int _strlen(char *str)
 }
 
 /**
- * strcmp: compares two strings
- *@str1: pointer to the first string
- *@str2: pointer to second string
+ * _strcmp - compares two strings
+ * @str1: pointer to the first string
+ * @str2: pointer to second string
  *
- * Return: returns numeric values 
+ * Return: returns numeric values.
  */
+int _strcmp(char *str1, char *str2)
 {
 	int count1 = _strlen(str1);
 	int count2 = _strlen(str2);

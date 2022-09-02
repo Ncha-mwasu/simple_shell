@@ -31,7 +31,7 @@ void execute_shell(char **command, int cmd_type)
 			wait(&stat);
 	}
 
-	else 
+	else
 		execute(command, cmd_type);
 }
 
@@ -67,7 +67,7 @@ int check_command(char *command)
 /**
  * execute - execute function.
  * @command: pointer to commands.
- * cmd_type: command type.
+ * @cmd_type: command type.
  *
  * Return: no return.
  */

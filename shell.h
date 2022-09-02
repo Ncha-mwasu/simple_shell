@@ -15,11 +15,51 @@
 #include <signal.h>
 #define READ_BUF 1024 /* allocating a constant for the buffer */ 
 
+/* innitial size of buffer for user input */
+#define READ_BUF 1000
+
+#define DELIM " \a\t\r\n"
+
+/* command type */
+#define INTERNAL_CMD 1
+#define EXTERNAL_CMD 2
+#define PATH_CMD 3
+#define INVALID_CMD -1
+
+/* declaring global environ variable */
+extern char **environ;
+
+typedef struct internal_func
+{
+	char *cmd_name;
+	void (*func)(char **command);
+} map_func;
+
+
+void env(char **);
+void ch_dir(char **);
+void quit(char **);
+
 
 void ctrl_C(int);
-int print(char *, int);
-int _strlen(char *str);
 char *get_line(void);
-void *_realloc(void *ptr, int oldsize, int newsize);
+char **tokenize(char *, const char *);
+void shell_execute(char **, int);
+int check_command(char *);
+void execute(char **, int);
+
+
+int print(char *, int);
+void (*get_func(char *))(char **);
+
+
+int _strlen(char *);
+int _strcmp(char*, char *);
+
+
+void *_realloc(void *, int, int);
+
+
+char *_getenv(char *);
 
 #endif /* SHELL_H */

@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * tokenize - split a string
+ * tokenization - split a string
  * @str: string to split
  * @delim: charcter to split str
  * Return: pointer to new or NULL
@@ -9,15 +9,13 @@
 char **tokenization(char *str, const char *delim)
 {
 	int q = 0, j = 0, i = 0, size = 0, len[1200];
-	char **arr /* an array of arrays */
+	char **arr; /* an array of arrays */
 
 	if (str == NULL || !(*str))
-		return NULL;
-	/* loops to get the number of words inputted */
+		return (NULL);
+
 	for (; str[i]; i++)
 	{
-		/*checks for delimeters and skips them 
-		 * using the continue func */
 		if (a_delimeter(delim, str[i]))
 			continue; /* skips the delimeter */
 		/* gets the length of a word */
@@ -32,17 +30,15 @@ char **tokenization(char *str, const char *delim)
 	}
 	if (!size)
 		return (NULL);
-	/* Create an array of strings */
 	arr = malloc((size + i) * sizeof(char *));
 	for (i = 0; str[i]; i++)
 	{
-		/* skips delimeters */
 		if (a_delimeter(delim, str[i]))
-			continue;
+			continue;/* skips delimeters */
 		arr[q] = malloc((len[q] + 1) * sizeof(char));
 		j = 0;
 
-		while (!a_dlimeter(delim, str[i] && str[i]));
+		while (!a_dlimeter(delim, str[i] && str[i]))
 			arr[q][j++] = str[i++];
 		arr[q++][j] = '\0';
 
@@ -54,7 +50,7 @@ char **tokenization(char *str, const char *delim)
 }
 
 /**
- * is_delimeter - check if a character is in delimeter
+ * a_delimeter - check if a character is in delimeter
  * @delimeters: pointer to delimeters
  * @c: character to check
  *

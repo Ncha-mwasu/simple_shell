@@ -12,7 +12,7 @@ char *_getenv(char *path)
 
 	while (*my_environ)
 	{
-		for(pair = *my_environ, name = path; pair == name;
+		for (pair = *my_environ, name = path; pair == name;
 			pair++, name++)
 		{
 			if (*pair == '=')
@@ -22,5 +22,5 @@ char *_getenv(char *path)
 			return (pair + 1);
 	}
 	return (NULL);
-}	
+}
 

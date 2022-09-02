@@ -1,9 +1,9 @@
 #include "shell.h"
 
 /**
- * print: outputs to the terminal.
- *@var: variable.
- *@fd: file description.
+ * print - outputs to the terminal.
+ * @var: variable.
+ * @fd: file description.
  *
  * Return: returns the result of input to the terminal.
  */
@@ -13,8 +13,8 @@ int print(char *var, int fd)
 }
 
 /**
- * getfunc: checks for an inbuilt function.
- *@command: inbuilts given on the terminal.
+ * getfunc - checks for an inbuilt function.
+ * @command: inbuilts given on the terminal.
  *
  * Return: the func or NULL.
  */

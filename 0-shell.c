@@ -2,19 +2,21 @@
 
 /**
  * main - starts the shell and initiates the shell loop.
- * 
+ *
  * @argc: counts the arguments passed on the terminal.
  * @argv: double char pointer to an array that holds the arguments
- * 	  passed on the terminal.
+ *		passed on the terminal.
  *
  * Return: 1 on success.
  */
 
-int main (int argc __atribute__((unused)), char **argv)
+int main(int argc, char **argv)
 {
 	char *line;
 	char **args;
 	int cmd_type;
+
+	unused(argc);
 
 	(void) argv;
 
