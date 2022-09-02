@@ -1,5 +1,11 @@
 #include "shell.h"
 
+/**
+ * ctrl_c - handles the ctrl c input.
+ * @signum: sets the function to signum.
+ *
+ * Return: no return.
+ */
 
 void ctrl_C(int signum) /* handles the ctrl + C function */
 {
@@ -7,12 +13,12 @@ void ctrl_C(int signum) /* handles the ctrl + C function */
 		print("\n (/$/) ", STDIN_FILENO)
 }
 
-int print(char *, int) /* user-defined printf using the write func*/
-{
-	return(write(fd, var, _strlen(var)));
-}
-
-
+/**
+ * get_line - reads the input given to the terminal
+ * @void: takes no arguments.
+ *
+ * Return: the string read.
+ */
 char *get_line(void) /* takes input from the terminal */
 {
 	int bufsize = READ_BUF /*declaring a buffer and giving it a defned value */, no_read /* count of chars read */, position = 0;
@@ -39,7 +45,7 @@ char *get_line(void) /* takes input from the terminal */
 				return (NULL);
 			}
 
-			else if c == "\n" || !no_read) /* if a new line is entered stop reading and give a new line */
+			else if (c == "\n" || !no_read) /* if a new line is entered stop reading and give a new line */
 			{
 				buffer[position] = '\0';
 				return (buffer);

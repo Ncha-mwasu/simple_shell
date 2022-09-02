@@ -8,12 +8,12 @@
  */
 char **tokenization(char *str, const char *delim)
 {
-	int k = 0, j = 0, i = 0, size = 0, len[1200];
+	int q = 0, j = 0, i = 0, size = 0, len[1200];
 	char **arr /* an array of arrays */
 
 	if (str == NULL || !(*str))
 		return NULL;
-	/* loops to get the number of words iputted */
+	/* loops to get the number of words inputted */
 	for (; str[i]; i++)
 	{
 		/*checks for delimeters and skips them 
@@ -30,4 +30,50 @@ char **tokenization(char *str, const char *delim)
 		if (!str[i])
 			break;
 	}
+	if (!size)
+		return (NULL);
+	/* Create an array of strings */
+	arr = malloc((size + i) * sizeof(char *));
+	for (i = 0; str[i]; i++)
+	{
+		/* skips delimeters */
+		if (a_delimeter(delim, str[i]))
+			continue;
+		arr[q] = malloc((len[q] + 1) * sizeof(char));
+		j = 0;
+
+		while (!a_dlimeter(delim, str[i] && str[i]));
+			arr[q][j++] = str[i++];
+		arr[q++][j] = '\0';
+
+		if (!str[i])
+			break;
+	}
+	arr[size] = NULL;
+	return (arr);
+}
+
+/**
+ * is_delimeter - check if a character is in delimeter
+ * @delimeters: pointer to delimeters
+ * @c: character to check
+ *
+ * Return: 1 for true 0 for false
+ */
+
+int a_delimeter(const char *delimeters, char c)
+{
+	int i = 0;
+
+	if (!delimeters)
+		return (0);
+
+	while (delimeters[i])
+	{
+		if (delimeter[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
+}
 
