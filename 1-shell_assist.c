@@ -10,7 +10,7 @@
 void ctrl_C(int signum) /* handles the ctrl + C function */
 {
 	if (signum == SIGINT)
-		print("\n (/$/) ", STDIN_FILENO)
+		print("\n ($) ", STDIN_FILENO)
 }
 
 /**
