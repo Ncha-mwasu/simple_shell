@@ -10,13 +10,12 @@
  * Return: 1 on success.
  */
 
-int main(int argc, char **argv)
+int main(int argc __attribute__((unused)), char **argv)
 {
 	char *line;
 	char **args;
 	int cmd_type;
 
-	unused(argc);
 
 	(void) argv;
 
@@ -25,7 +24,7 @@ int main(int argc, char **argv)
 
 	while (1)
 	{
-		_print(" ($) ", STDOUT_FILENO);
+		print(" ($) ", STDOUT_FILENO);
 		line = get_line();
 
 		if (line == NULL)
@@ -34,9 +33,9 @@ int main(int argc, char **argv)
 				break;
 		}
 		/* argument initialization */
-		args = token(line, DELIMETER);
+		args = tokenization(line, DELIMETER);
 		cmd_type = check_command(args[0]);
-		execute_shell(args);
+		execute_shell(args, cmd_type);
 	}
 	return (1);
 }

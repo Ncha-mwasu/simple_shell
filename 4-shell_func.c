@@ -13,7 +13,7 @@ int print(char *var, int fd)
 }
 
 /**
- * getfunc - checks for an inbuilt function.
+ * _getfunc - checks for an inbuilt function.
  * @command: inbuilts given on the terminal.
  *
  * Return: the func or NULL.
@@ -28,7 +28,7 @@ void (*_getfunc(char *command))(char **)
 		{"exit", quit}
 	};
 
-	for (i = 0; map[i]; i++)
+	for (i = 0; i < 3; i++)
 	{
 		if (_strcmp(command, map[i].cmd_name) == 0)
 			return (map[i].func);

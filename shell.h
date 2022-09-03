@@ -13,12 +13,9 @@
 #include <unistd.h>
 #include <netdb.h>
 #include <signal.h>
-#define READ_BUF 1024 /* allocating a constant for the buffer */ 
+#define READ_BUF 1024/* allocating a constant for the buffer */
 
-/* innitial size of buffer for user input */
-#define READ_BUF 1000
-
-#define DELIM " \a\t\r\n"
+#define DELIMETER " \a\t\r\n"
 
 /* command type */
 #define INTERNAL_CMD 1
@@ -29,11 +26,22 @@
 /* declaring global environ variable */
 extern char **environ;
 
+/**
+ * struct internal_func - structure madee for internal functions
+ * @cmd_name: name of command
+ * @func: function of command
+ *
+ */
 typedef struct internal_func
 {
 	char *cmd_name;
 	void (*func)(char **command);
 } map_func;
+
+typedef struct path_hist
+{
+	char *oldpath;
+} path_hist;
 
 
 void env(char **);
@@ -43,18 +51,19 @@ void quit(char **);
 
 void ctrl_C(int);
 char *get_line(void);
-char **tokenize(char *, const char *);
-void shell_execute(char **, int);
+char **tokenization(char *, const char *);
+void execute_shell(char **, int, path_hist *);
 int check_command(char *);
-void execute(char **, int);
+void execute(char **, int, path_hist *);
+int a_delimeter(const char *, char);
 
 
 int print(char *, int);
-void (*get_func(char *))(char **);
+void (*_getfunc(char *))(char ** path_hist **);
 
 
 int _strlen(char *);
-int _strcmp(char*, char *);
+int _strcmp(char *, char *);
 
 
 void *_realloc(void *, int, int);

@@ -12,7 +12,7 @@
 void *_realloc(void *ptr, int oldsize, int newsize)
 {
 	void *tmp; /* declaring a temporary memory space */
-	int i, min;
+	int i, cond;
 
 	if (ptr == NULL) /* declaring a new space if pointer is empty */
 	{
@@ -31,12 +31,12 @@ void *_realloc(void *ptr, int oldsize, int newsize)
 
 	else
 	{
-		min = (new < old) ? newsize : oldsize; /* tenary operator replacing if */
+		cond = (newsize < oldsize) ? newsize : oldsize; /* tenary operator replacing if */
 		tmp = malloc(newsize);
 		if (tmp)
 		{
-			for (i = 0; i < min; i++)
-				*((char *)tmp + 1) = *((char *)ptr + 1)
+			for (i = 0; i < cond; i++)
+				*((char *)tmp + 1) = *((char *)ptr + 1);
 			free(ptr);
 			return (tmp);
 		}

@@ -8,7 +8,9 @@
  */
 char *_getenv(char *path)
 {
-	char **my_environ == environ, *pair, *name;
+	char **my_environ = environ;
+	char *pair;
+	char *name;
 
 	while (*my_environ)
 	{

@@ -38,7 +38,7 @@ char **tokenization(char *str, const char *delim)
 		arr[q] = malloc((len[q] + 1) * sizeof(char));
 		j = 0;
 
-		while (!a_dlimeter(delim, str[i] && str[i]))
+		while (!a_delimeter(delim, str[i] && str[i]))
 			arr[q][j++] = str[i++];
 		arr[q++][j] = '\0';
 
@@ -57,14 +57,14 @@ char **tokenization(char *str, const char *delim)
  * Return: 1 for true 0 for false
  */
 
-int a_delimeter(const char *delimeters, char c)
+int a_delimeter(const char *delimeter, char c)
 {
 	int i = 0;
 
-	if (!delimeters)
+	if (!delimeter)
 		return (0);
 
-	while (delimeters[i])
+	while (delimeter[i])
 	{
 		if (delimeter[i] == c)
 			return (1);

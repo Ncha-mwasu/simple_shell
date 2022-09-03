@@ -50,7 +50,7 @@ int check_command(char *command)
 	{
 		if (command[i] == '/')
 			return (EXTERNAL_CMD);
-		i++
+		i++;
 	}
 
 	i = 0;
@@ -88,7 +88,7 @@ void execute(char **command, int cmd_type)
 			}
 		case INTERNAL_CMD:
 			{
-				func = get_func(command[0]);
+				func = _getfunc(command[0]);
 				func(command);
 				break;
 			}

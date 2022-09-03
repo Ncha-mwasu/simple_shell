@@ -10,7 +10,7 @@
 void ctrl_C(int signum) /* handles the ctrl + C function */
 {
 	if (signum == SIGINT)
-		print("\n ($) ", STDIN_FILENO)
+		print("\n ($) ", STDIN_FILENO);
 }
 
 /**
@@ -43,11 +43,11 @@ char *get_line(void) /* takes input from the terminal */
 			/* checks if the input EOF (ctrl+D) is from the terminal */
 			if (isatty(STDIN_FILENO) == 1)
 			{
-				print("\n". STDIN_FILENO);
+				print("\n", STDIN_FILENO);
 				return (NULL);
 			}
 
-			else if (c == "\n" || !no_read)
+			else if (c == '\n' || !no_read)
 				/* if a new line is entered stop reading and give a new line */
 			{
 				buffer[position] = '\0';
