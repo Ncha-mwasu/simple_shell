@@ -28,20 +28,19 @@ int _strcmp(char *str1, char *str2)
 {
 	int count1 = _strlen(str1);
 	int count2 = _strlen(str2);
-	int i = 0, q = 0;
+	int i = 0;
 
 	if (count1 != count2)
 	{
-		return(0);
+		return(-1);
 	}
 
 	while (str1[i])
 	{
 		if (str1[i] != str2[i])
 		{
-			q = str1[i] - str2[i];
+			return (-1);
 		}
-		return (q);
 		i++;
 	}
 	return (0);

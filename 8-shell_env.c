@@ -18,17 +18,17 @@ void env(char **command __attribute__((unused)))
 }
 
 void quit(char **commands)
-	{
+{
 	(void) commands;
 }
 
-void ch_dir(char **commands, path_hist *ptr)
+void ch_dir(char **commands/*, path_hist *ptr*/)
 {
-	char *home;
+	/* char *home;
 
 	home = getenv("HOME");
 	if (command[1] == NULL)
-	{
-		set pre
+	{	set pre*/
 
+	(void) commands;
 }

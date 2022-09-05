@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-#ifndef _SHELL_H
-#define _SHELL_H
-
-
-
-#endif
-=======
 #ifndef SHELL_H
 #define SHELL_H
 
@@ -46,11 +38,12 @@ typedef struct internal_func
 	void (*func)(char **command);
 } map_func;
 
+/*
 typedef struct path_hist
 {
 	char *oldpath;
 } path_hist;
-
+*/
 
 void env(char **);
 void ch_dir(char **);
@@ -60,14 +53,14 @@ void quit(char **);
 void ctrl_C(int);
 char *get_line(void);
 char **tokenization(char *, const char *);
-void execute_shell(char **, int, path_hist *);
+void execute_shell(char **, int);
 int check_command(char *);
-void execute(char **, int, path_hist *);
+void execute(char **, int);
 int a_delimeter(const char *, char);
 
 
 int print(char *, int);
-void (*_getfunc(char *))(char ** path_hist **);
+void (*_getfunc(char *))(char **);
 
 
 int _strlen(char *);
@@ -80,4 +73,3 @@ void *_realloc(void *, int, int);
 char *_getenv(char *);
 
 #endif /* SHELL_H */
->>>>>>> 31e75e89740b7f0440cfff129ac985e511780bd0
