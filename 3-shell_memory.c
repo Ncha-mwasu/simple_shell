@@ -14,20 +14,20 @@ void *_realloc(void *ptr, int oldsize, int newsize)
 	void *tmp; /* declaring a temporary memory space */
 	int i, cond;
 
-	if (ptr == NULL) /* declaring a new space if pointer is empty */
+	if (!ptr) /* declaring a new space if pointer is empty */
 	{
 		tmp = malloc(newsize);
 		return (tmp);
 	}
 
-	else if (newsize == 0 && ptr != NULL)
+	else if (newsize == oldsize)
+		return (ptr);
+
+	else if (newsize == 0 && ptr)
 	{
 		free(ptr);
 		return (NULL);
 	}
-
-	else if (newsize == oldsize)
-		return (ptr);
 
 	else
 	{

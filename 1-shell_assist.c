@@ -21,9 +21,9 @@ void ctrl_C(int signum) /* handles the ctrl + C function */
  */
 char *get_line(void) /* takes input from the terminal */
 {
-	int bufsize = READ_BUF, no_read /* count of chars read */, position = 0;
+	int bufsize = READ_BUF, no_read, position = 0;
 
-	char *buffer = malloc(sizeof(char) * bufsize);
+	char *buffer = malloc(bufsize * sizeof(char));
 	/*buffer sizing and pointer declaration */
 	char c;
 
@@ -46,35 +46,33 @@ char *get_line(void) /* takes input from the terminal */
 				print("\n", STDIN_FILENO);
 				return (NULL);
 			}
+		}
+		else if (c == '\n' || !no_read)
+		/* if a new line is entered stop reading and give a new line */
+		{
+			buffer[position] = '\0';
+			return (buffer);
+		}
 
-			else if (c == '\n' || !no_read)
-				/* if a new line is entered stop reading and give a new line */
+		else
+			buffer[position] = c;
+			/*reading inputs and giving em memory spaces */
+		position++;
+
+		if (position >= bufsize)
+		/* reallocation of storage space for input */
+		{
+			bufsize += READ_BUF;
+			buffer = _realloc(buffer, READ_BUF, bufsize);
+			/* calling a user defined realloc func */
+
+			if (!buffer)
 			{
-				buffer[position] = '\0';
-				return (buffer);
-			}
-
-			else
-			{
-				buffer[position] = c;
-				/*reading inputs and giving em memory spaces */
-			}
-			position++;
-
-			if (position >= bufsize)
-				/* reallocation of storage space for input */
-			{
-				bufsize += READ_BUF;
-				buffer = _realloc(buffer, READ_BUF, bufsize);
-				/* calling a user defined realloc func */
-
-				if (!buffer)
-				{
-					perror("Failed to re-allocate memory space");
-					exit(EXIT_FAILURE);
-				}
+				perror("Failed to re-allocate memory space");
+				exit(EXIT_FAILURE);
 			}
 		}
+		
 	}
 }
 

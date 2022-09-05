@@ -14,7 +14,7 @@ char **tokenization(char *str, const char *delim)
 	if (str == NULL || !(*str))
 		return (NULL);
 
-	for (; str[i]; i++)
+	for (i = 0; str[i]; i++)
 	{
 		if (a_delimeter(delim, str[i]))
 			continue; /* skips the delimeter */
@@ -30,6 +30,7 @@ char **tokenization(char *str, const char *delim)
 	}
 	if (!size)
 		return (NULL);
+
 	arr = malloc((size + i) * sizeof(char *));
 	for (i = 0; str[i]; i++)
 	{

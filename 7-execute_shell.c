@@ -9,7 +9,7 @@
  */
 void execute_shell(char **command, int cmd_type)
 {
-	int stat;
+	int status;
 	pid_t MyPid;
 
 	if (cmd_type == EXTERNAL_CMD || cmd_type == PATH_CMD)
@@ -28,7 +28,7 @@ void execute_shell(char **command, int cmd_type)
 		}
 
 		else
-			wait(&stat);
+			wait(&status);
 	}
 
 	else
