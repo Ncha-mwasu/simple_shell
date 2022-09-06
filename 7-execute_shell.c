@@ -66,20 +66,20 @@ int check_command(char *command)
 
 /**
  * execute - execute function.
- * @command: pointer to commands.
+ * @commands: pointer to commands.
  * @cmd_type: command type.
  *
  * Return: no return.
  */
-void execute(char **command, int cmd_type)
+void execute(char **commands, int cmd_type)
 {
-	void (*func)(char **commands);
+	void (*func)(char **command);
 
 	switch (cmd_type)
 	{
 		case EXTERNAL_CMD:
 			{
-				if (execve(command[0], command, NULL) == -1)
+				if (execve(commands[0], commands, NULL) == -1)
 				{
 					perror(_getenv("PWD"));
 					exit(2);
@@ -88,8 +88,8 @@ void execute(char **command, int cmd_type)
 			}
 		case INTERNAL_CMD:
 			{
-				func = _getfunc(command[0]);
-				func(command);
+				func = _getfunc(commands[0]);
+				func(commands);
 				break;
 			}
 		case PATH_CMD:

@@ -1,5 +1,6 @@
 #include "shell.h"
 
+int a_delimeter(const char *delimeter, char c);
 /**
  * tokenization - split a string
  * @str: string to split
@@ -52,7 +53,7 @@ char **tokenization(char *str, const char *delim)
 
 /**
  * a_delimeter - check if a character is in delimeter
- * @delimeters: pointer to delimeters
+ * @delimeter: pointer to delimeters
  * @c: character to check
  *
  * Return: 1 for true 0 for false
@@ -73,4 +74,3 @@ int a_delimeter(const char *delimeter, char c)
 	}
 	return (0);
 }
-

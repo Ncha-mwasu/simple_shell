@@ -56,7 +56,6 @@ char **tokenization(char *, const char *);
 void execute_shell(char **, int);
 int check_command(char *);
 void execute(char **, int);
-int a_delimeter(const char *, char);
 
 
 int print(char *, int);

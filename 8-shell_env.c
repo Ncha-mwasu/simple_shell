@@ -3,9 +3,9 @@
 /**
  * env - array of pointers to strings called the environment
  * @command: pointer to command.
- * 
  *
- */ 
+ *
+ */
 void env(char **command __attribute__((unused)))
 {
 	int i = 0;
@@ -25,7 +25,6 @@ void quit(char **commands)
 void ch_dir(char **commands/*, path_hist *ptr*/)
 {
 	/* char *home;
-
 	home = getenv("HOME");
 	if (command[1] == NULL)
 	{	set pre*/

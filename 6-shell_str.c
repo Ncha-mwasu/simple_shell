@@ -30,7 +30,7 @@ int _strcmp(char *str1, char *str2)
 
 	if (count1 != count2)
 	{
-		return(-1);
+		return (-1);
 	}
 
 	while (str1[i])

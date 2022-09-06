@@ -72,7 +72,6 @@ char *get_line(void) /* takes input from the terminal */
 				exit(EXIT_FAILURE);
 			}
 		}
-		
 	}
 }
 
