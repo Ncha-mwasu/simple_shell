@@ -1,49 +1,63 @@
-#include "main.h"
-
+#include "header.h"
 /**
- * _strtok - Extract tokens from strings.
- * @str: string to break into tokens.
- * @delim: character that delimit the tokens.
- * Return: a pointer to the next token, NULL if there are no more tokens.
+ * check_delim - function that checks if a character matchs any character
+ * @c: character to check
+ * @str: string of delimiters
+ * Return: 1 on success, 0 on failure
  */
-char *_strtok(char *str, char *delim)
+unsigned int check_delim(char c, const char *str)
 {
-	static char *token;
-	static int position;
-	char *res = NULL;
-	int cont = 0, i = 0, j = 0, flag = 0;
+	unsigned int i;
+
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if (c == str[i])
+			return (1);
+	}
+	return (0);
+}
+/**
+ * _strtok - function that extracts tokens of a string
+ * @str: string
+ * @delim: delimiter
+ * Return: pointer to the next token or NULL
+ */
+char *_strtok(char *str, const char *delim)
+{
+	static char *tokens;
+	static char *new_token;
+	unsigned int i;
 
 	if (str != NULL)
-		token = str, position = 0;
-	if (token == NULL || delim == NULL)
+		new_token = str;
+	tokens = new_token;
+	if (tokens == NULL)
 		return (NULL);
-	if (position >= _strlen(token))
-		return (NULL);
-
-	cont = 0;
-	for (i = position; token[i]; i++)
+	for (i = 0; tokens[i] != '\0'; i++)
 	{
-		for (j = 0; delim[j]; j++)
-		{
-			if (token[i] == delim[j])
-			{
-				flag = 1;
-				break;
-			}
-		}
-		if (flag == 1)
+		if (check_delim(tokens[i], delim) == 0)
 			break;
-		cont++;
 	}
-
-	res = malloc(sizeof(char) * (cont + 1));
-	if (!res)
+	if (new_token[i] == '\0' || new_token[i] == '#')
+	{
+		new_token = NULL;
 		return (NULL);
-
-	for (i = 0; i < cont; i++)
-		res[i] = token[position + i];
-	res[i] = '\0';
-	position += cont + 1;
-
-	return (res);
+	}
+	tokens = new_token + i;
+	new_token = tokens;
+	for (i = 0; new_token[i] != '\0'; i++)
+	{
+		if (check_delim(new_token[i], delim) == 1)
+			break;
+	}
+	if (new_token[i] == '\0')
+		new_token = NULL;
+	else
+	{
+		new_token[i] = '\0';
+		new_token = new_token + i + 1;
+		if (*new_token == '\0')
+			new_token = NULL;
+	}
+	return (tokens);
 }

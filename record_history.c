@@ -1,8 +1,8 @@
-#include "main.h"
+#include "header.h"
 /**
- * history - Fill File By User Input
- * @input: User Input
- * Return: -1 Fail 0 Succes
+ * history - write file with user inputs
+ * @input: user input
+ * Return: 0 on success -1 if failed
  */
 int history(char *input)
 {
