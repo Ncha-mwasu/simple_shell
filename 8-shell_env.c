@@ -17,17 +17,25 @@ void env(char **command __attribute__((unused)))
 	}
 }
 
+/**
+ * quit - function to exit the shell.
+ * @commands: commands given.
+ *
+ *
+ * Return: no return.
+ */
 void quit(char **commands)
 {
 	(void) commands;
 }
 
-void ch_dir(char **commands/*, path_hist *ptr*/)
+/**
+ * ch_dir - function that changes the directory.
+ * @commands: pointer to commands
+ *
+ * Return: No return
+ */
+void ch_dir(char **commands)
 {
-	/* char *home;
-	home = getenv("HOME");
-	if (command[1] == NULL)
-	{	set pre*/
-
 	(void) commands;
 }
