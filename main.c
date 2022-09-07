@@ -20,7 +20,7 @@ void INThandler(int sig)
 void print_dollar(void)
 {
 	if (isatty(STDIN_FILENO))
-		write(STDOUT_FILENO, "$ ", 2);
+		write(STDOUT_FILENO, "($) ", 4);
 }
 
 /**
@@ -69,6 +69,9 @@ int main(int argc, char **argv, char **env)
 		print_dollar();
 	}
 	if (characters == -1)
+	{
 		return (EXIT_FAILURE);
 		return (EXIT_SUCCESS);
+	}
+	return (0);
 }

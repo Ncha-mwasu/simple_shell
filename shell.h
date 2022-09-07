@@ -19,7 +19,7 @@ void print_dollar(void);
 unsigned int find_length_command(char *s);
 char **array_strtok(char *str);
 
-/*execute.c*/
+/*shel _execute.c*/
 void execute(char **commands, char *buffer, char **env,
 		char **argv, int count);
 
@@ -30,7 +30,7 @@ unsigned int _strlen_const(const char *str);
 unsigned int _strlen(char *str);
 int _strcmp(char *s1, char *s2);
 
-/*env.c*/
+/*shell_env.c*/
 unsigned int find_num_dir(char *path);
 char **store_e_variables(char *fir_com, char **environ);
 char *_getenv(const char *name, char **environ);
