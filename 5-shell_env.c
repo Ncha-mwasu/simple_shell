@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
- * getenv - get value of an environment variable.
+ * _getenv - get value of an environment variable.
  * @path: pointer to the path of environmental varibles.
  *
  * Return: Null.
