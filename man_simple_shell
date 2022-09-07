@@ -21,7 +21,7 @@ The simple shell is a simplified iteration of a command line interpreter similar
 .B Simple Shell
 operates in both
 .I interactive
-and 
+and
 .I non-interactive
 mode. The user may initiate
 .B simple shell
@@ -41,7 +41,7 @@ $./hsh
 
 $
 
-$ls 
+$ls
 
 .RS 3
 AUTHORS           free_all.c               shell.h
@@ -67,9 +67,9 @@ The default search path for executables.
 
 .SH SEE ALSO
 .I sh(1)
-, 
+,
 .I bash(1)
-, 
+,
 .I _printf(3)
 .SH BUGS
 No known bugs.
